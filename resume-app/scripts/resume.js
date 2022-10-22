@@ -5,7 +5,8 @@ const btnsEl = document.querySelector(".buttons");
 const btnPrevEl = document.querySelector(".btn-prev");
 const btnNextEl = document.querySelector(".btn-next");
 
-const url = "../data/Data.json";
+const url = "/resume-app/data/Data.json"; //relative path to the domain for example 127.0.0.1:5501/....
+
 let count = -1;
 let resumes = null;
 let searchFlag = false;
