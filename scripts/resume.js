@@ -11,21 +11,12 @@ let resumes = null;
 let searchFlag = false;
 let filteredResumes = null;
 
-// event listeners
-bodyEl.addEventListener("load", showNextResume());
-btnNextEl.addEventListener("click", showNextResume);
-btnPrevEl.addEventListener("click", showPrevResume);
-
-searchEl.addEventListener("keypress", showFilteredResumes);
-
-async function showNextResume() {
+const showNextResume = async () => {
   if (searchFlag) {
     resumes = filteredResumes;
   } else if (resumes === null) {
     resumes = await fetchData(url);
   }
-
-  console.log(resumes);
 
   if (resumes.length === 0) {
     //display no data
@@ -47,7 +38,7 @@ async function showNextResume() {
       populateResume(resumes[count]);
     }
   }
-}
+};
 
 async function showPrevResume() {
   populateResume(resumes[--count]);
@@ -84,7 +75,7 @@ async function showFilteredResumes() {
   }
 }
 
-async function fetchData(url) {
+const fetchData = async (url) => {
   try {
     let response = await fetch(url);
     let data = await response.json();
@@ -92,7 +83,7 @@ async function fetchData(url) {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 const applicantInfoEl = document.querySelector(".applicant-info");
 const noDataEl = document.querySelector(".no-data-box-wrapper");
@@ -213,3 +204,10 @@ function populateExperienceInfoSection(resumeData) {
   }
   achievementsEl.innerHTML = achievementsStr;
 }
+
+// event listeners
+bodyEl.addEventListener("load", showNextResume());
+btnNextEl.addEventListener("click", showNextResume);
+btnPrevEl.addEventListener("click", showPrevResume);
+
+searchEl.addEventListener("keypress", showFilteredResumes);

@@ -3,17 +3,11 @@ import { addUsersToLocalStorage } from "./user-service.js";
 const formEl = document.querySelector(".login-form");
 const invalidLoginEl = document.querySelector(".invalid-login");
 
-//add users to localStorage
-document.addEventListener("load", addUsersToLocalStorage());
-
-document.addEventListener("load", preventBack());
-formEl.addEventListener("submit", authenticate);
-
-function preventBack() {
+const preventBack = () => {
   window.history.forward();
-}
+};
 
-function authenticate(event) {
+const authenticate = (event) => {
   event.preventDefault();
   const formUser = document
     .querySelector(".username")
@@ -32,12 +26,17 @@ function authenticate(event) {
   } else {
     invalidLoginEl.textContent = "Invalid username/password";
   }
-}
+};
 
-function isValidUser(users, username, password) {
+const isValidUser = (users, username, password) => {
   for (const user of users) {
-    console.log(user.username, user.password);
     if (user.username === username && user.password === password) return true;
   }
   return false;
-}
+};
+
+//add users to localStorage
+document.addEventListener("load", addUsersToLocalStorage());
+
+document.addEventListener("load", preventBack());
+formEl.addEventListener("submit", authenticate);
