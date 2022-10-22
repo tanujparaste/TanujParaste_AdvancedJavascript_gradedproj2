@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Template App</title>
+    <link rel="stylesheet" href="styles/resume.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <header>
+        <input
+          type="search"
+          placeholder="Search applicants applied for a job..."
+          class="search"
+        />
+        <section class="buttons hidden">
+          <button class="btn-prev hidden">Previous</button>
+          <button class="btn-next hidden">Next</button>
+        </section>
+      </header>
+      <section class="applicant-info">
+        <section class="applicant-basic-info">
+          <h1 class="applicant-name"></h1>
+          <p class="applied-for"></p>
+          <section class="applicant-img">
+            <i class="fa-solid fa-user fa-6x"></i>
+          </section>
+        </section>
+        <section class="applicant-detailed-info">
+          <aside class="skill-info">
+            <section class="personal-info">
+              <h2>Personal Information</h2>
+              <ul>
+                <li class="phone"></li>
+                <li class="email"></li>
+                <li class="profile"></li>
+              </ul>
+            </section>
+            <section class="technical-info">
+              <h2>Technical Skills</h2>
+              <ul></ul>
+            </section>
+            <section class="hobbies">
+              <h2>Hobbies</h2>
+              <ul></ul>
+            </section>
+          </aside>
+          <section class="exp-info">
+            <section class="work">
+              <h2>Work Experience in previous company</h2>
+              <ul></ul>
+            </section>
+            <section class="projects">
+              <h2>Projects</h2>
+              <ul></ul>
+            </section>
+            <section class="education bulleted-list">
+              <h2>Education</h2>
+              <ul></ul>
+            </section>
+            <section class="internship bulleted-list">
+              <h2>Internship</h2>
+              <ul></ul>
+            </section>
+            <section class="achievements bulleted-list">
+              <h2>Achievements</h2>
+              <ul></ul>
+            </section>
+          </section>
+        </section>
+      </section>
+      <section class="no-data-box-wrapper hidden">
+        <section class="no-data-box">
+          <i class="fa-solid fa-face-frown fa-10x"></i>
+          <p>No such results found</p>
+        </section>
+      </section>
+    </div>
+    <script src="scripts/resume.js"></script>
+  </body>
+</html>

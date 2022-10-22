@@ -1,0 +1,171 @@
+@import url("./reset.css");
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  text-align: justify;
+}
+.main {
+  /* width: 90%; */
+  width: 100%;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+header {
+  /* padding: 1rem; */
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: auto;
+  /* grid-template-columns: auto auto; */
+  gap: 0.5rem;
+}
+
+.search {
+  width: 50%;
+  justify-self: center;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.buttons {
+  justify-self: right;
+  display: grid;
+  /* display: grid; */
+  grid-template-columns: auto auto;
+  gap: 0.5rem;
+}
+
+button {
+  /* display: none; */
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.applicant-info,
+.no-data-box-wrapper {
+  border: 2px solid #000;
+  border-radius: 0.5rem;
+  /* box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.6); */
+}
+/* applicant basic info */
+.applicant-info {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.applicant-basic-info {
+  display: grid;
+  /* grid-template-columns: auto auto; */
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  /* justify-content: center; */
+  align-items: center;
+  text-align: center;
+  background-color: #d1f6f0;
+  padding: 1rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.applicant-name {
+  font-size: 2.25rem;
+  text-transform: capitalize;
+}
+
+.applied-for {
+  font-weight: bold;
+}
+
+.applicant-img {
+  /* justify-self: flex-end; */
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  /* width: 10rem;
+  height: 10rem;
+  background-color: antiquewhite; */
+}
+
+.applicant-detailed-info {
+  /* padding: 1rem; */
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 1rem;
+  padding: 1rem 2rem;
+}
+
+.skill-info {
+  padding: 1rem;
+  height: max-content;
+  background-color: #f8e2e2;
+}
+
+.skill-info h2 {
+  background-color: #a9a9a9;
+  margin: 0.5rem 0;
+  padding: 0.25rem 0.2rem;
+}
+
+li {
+  line-height: 1.5;
+  list-style-type: disc;
+}
+
+.skill-info li,
+.work li,
+.projects li {
+  list-style-type: none;
+}
+
+.skill-info li {
+  text-align: right;
+}
+
+.work li {
+  margin-bottom: 1rem;
+}
+
+.exp-info h2 {
+  margin: 1rem 0;
+}
+
+.work h2 {
+  margin-top: 0;
+}
+
+.exp-info ul {
+  margin-left: 2.5rem;
+  list-style-type: none;
+}
+
+.fa-user {
+  padding: 2rem;
+}
+
+.no-data-box-wrapper {
+  justify-self: center;
+  width: 60%;
+  padding: 2rem 0;
+  display: grid;
+  justify-content: center;
+}
+
+.no-data-box {
+  /* width: 50%; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.no-data-box p {
+  font-size: 2rem;
+}
+
+.hidden {
+  display: none;
+}
