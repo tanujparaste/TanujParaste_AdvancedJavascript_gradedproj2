@@ -31,8 +31,7 @@ const showNextResume = async () => {
     if (++count <= resumes.length - 1) {
       if (count === 0) {
         disableElement(btnPrevEl);
-      }
-      if (count === resumes.length - 1) {
+      } else if (count === resumes.length - 1) {
         disableElement(btnNextEl);
       }
       populateResume(resumes[count]);
@@ -40,17 +39,15 @@ const showNextResume = async () => {
   }
 };
 
-async function showPrevResume() {
+const showPrevResume = async () => {
   populateResume(resumes[--count]);
-  if (count === 0 /*&& resumes.length !== 2*/) {
+  if (count === 0) {
     disableElement(btnPrevEl);
   }
-  // else {
   enableElement(btnNextEl);
-  // }
-}
+};
 
-async function showFilteredResumes() {
+const showFilteredResumes = async () => {
   if (event.key === "Enter") {
     searchFlag = true;
     const searchedVal = searchEl.value.trim();
@@ -73,7 +70,7 @@ async function showFilteredResumes() {
     count = -1;
     showNextResume();
   }
-}
+};
 
 const fetchData = async (url) => {
   try {
@@ -88,43 +85,43 @@ const fetchData = async (url) => {
 const applicantInfoEl = document.querySelector(".applicant-info");
 const noDataEl = document.querySelector(".no-data-box-wrapper");
 
-function displayNoDataMessage() {
+const displayNoDataMessage = () => {
   showSearchBoxOnly();
   enableElement(noDataEl);
   disableElement(applicantInfoEl);
   disableElement(btnsEl);
-}
+};
 
-function showSearchBoxOnly() {
+const showSearchBoxOnly = () => {
   headerEl.style.gridTemplateColumns = "1fr";
-}
+};
 
-function displayData() {
+const displayData = () => {
   headerEl.style.gridTemplateColumns = "4fr 1fr";
   disableElement(noDataEl);
   enableElement(btnsEl);
   enableElement(btnNextEl);
   enableElement(btnPrevEl);
   enableElement(applicantInfoEl);
-}
+};
 
-function enableElement(el) {
+const enableElement = (el) => {
   el.classList.remove("hidden");
-}
+};
 
-function disableElement(el) {
+const disableElement = (el) => {
   el.classList.add("hidden");
-}
+};
 
 const applicantNameEl = document.querySelector(".applicant-name");
 const appliedForEl = document.querySelector(".applied-for");
 
-function populateResume(resumeData) {
+const populateResume = (resumeData) => {
   applicantNameEl.textContent = resumeData.basics.name;
   appliedForEl.textContent = `Applied For: ${resumeData.basics.AppliedFor}`;
   populateTechnicalInfoSection(resumeData);
   populateExperienceInfoSection(resumeData);
-}
+};
 
 const phoneEl = document.querySelector(".phone");
 const emailEl = document.querySelector(".email");
@@ -132,7 +129,7 @@ const profileEl = document.querySelector(".profile");
 const technicalListEl = document.querySelector(".technical-info ul");
 const hobbyListEl = document.querySelector(".hobbies ul");
 
-function populateTechnicalInfoSection(resumeData) {
+const populateTechnicalInfoSection = (resumeData) => {
   //personal info
   phoneEl.textContent = resumeData.basics.phone;
   emailEl.textContent = resumeData.basics.email;
@@ -153,7 +150,7 @@ function populateTechnicalInfoSection(resumeData) {
     hobbiesStr += `<li>${hobby}</li>`;
   }
   hobbyListEl.innerHTML = hobbiesStr;
-}
+};
 
 const workEl = document.querySelector(".work ul");
 const projectsEl = document.querySelector(".projects ul");
@@ -161,7 +158,7 @@ const educationEl = document.querySelector(".education ul");
 const internshipEl = document.querySelector(".internship ul");
 const achievementsEl = document.querySelector(".achievements ul");
 
-function populateExperienceInfoSection(resumeData) {
+const populateExperienceInfoSection = (resumeData) => {
   //work
   const work = resumeData.work;
   let workStr = "";
@@ -203,7 +200,7 @@ function populateExperienceInfoSection(resumeData) {
     achievementsStr += `<li>${item}</li>`;
   }
   achievementsEl.innerHTML = achievementsStr;
-}
+};
 
 // event listeners
 bodyEl.addEventListener("load", showNextResume());
