@@ -5,7 +5,7 @@ const btnsEl = document.querySelector(".buttons");
 const btnPrevEl = document.querySelector(".btn-prev");
 const btnNextEl = document.querySelector(".btn-next");
 
-const url = "/resume-app/data/Data.json"; //relative path to the domain for example 127.0.0.1:5501/....
+const url = "http://localhost:3000/resume";
 
 let count = -1;
 let resumes = null;
@@ -77,7 +77,7 @@ const fetchData = async (url) => {
   try {
     let response = await fetch(url);
     let data = await response.json();
-    return data.resume; // array of resumes
+    return data; // array of resumes
   } catch (error) {
     console.log(error);
   }
